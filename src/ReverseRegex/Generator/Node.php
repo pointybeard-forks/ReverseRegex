@@ -136,7 +136,7 @@ class Node implements ArrayAccess, Countable, Iterator
     //------------------------------------------------------------------
     // Countable
 
-    public function count()
+    public function count(): int
     {
         return count($this->links);
     }
@@ -144,27 +144,27 @@ class Node implements ArrayAccess, Countable, Iterator
     //------------------------------------------------------------------
     // Iterator
 
-    public function current()
+    public function current(): mixed
     {
         return $this->links->current();
     }
 
-    public function key()
+    public function key(): mixed
     {
         return $this->links->key();
     }
 
-    public function next()
+    public function next(): void
     {
-        return $this->links->next();
+        $this->links->next();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
-        return $this->links->rewind();
+        $this->links->rewind();
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->links->valid();
     }
@@ -172,24 +172,24 @@ class Node implements ArrayAccess, Countable, Iterator
     //------------------------------------------------------------------
     // ArrayAccess Implementation
 
-    public function offsetGet($key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->attrs->offsetGet($key);
     }
 
-    public function offsetSet($key, $value)
+    public function offsetSet(mixed $key, mixed $value): void
     {
         $this->attrs->offsetSet($key, $value);
     }
 
-    public function offsetExists($key)
+    public function offsetExists(mixed $key): bool
     {
         return $this->attrs->offsetExists($key);
     }
 
-    public function offsetUnset($key)
+    public function offsetUnset(mixed $key): void
     {
-        return $this->attrs->offsetUnset($key);
+        $this->attrs->offsetUnset($key);
     }
 }
 
