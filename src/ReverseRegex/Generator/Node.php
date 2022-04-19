@@ -9,6 +9,7 @@ use ArrayObject;
 use Countable;
 use Iterator;
 use SplObjectStorage;
+use Closure;
 
 /**
  *  Base to all Generator Scopes.
@@ -136,7 +137,7 @@ class Node implements ArrayAccess, Countable, Iterator
     //------------------------------------------------------------------
     // Countable
 
-    public function count()
+    public function count(): int
     {
         return count($this->links);
     }
@@ -154,17 +155,17 @@ class Node implements ArrayAccess, Countable, Iterator
         return $this->links->key();
     }
 
-    public function next()
+    public function next(): void
     {
         $this->links->next();
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->links->rewind();
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return $this->links->valid();
     }
@@ -177,19 +178,19 @@ class Node implements ArrayAccess, Countable, Iterator
         return $this->attrs->offsetGet($key);
     }
 
-    public function offsetSet($key, $value)
+    public function offsetSet($key, $value): void
     {
         $this->attrs->offsetSet($key, $value);
     }
 
-    public function offsetExists($key)
+    public function offsetExists($key): bool
     {
         return $this->attrs->offsetExists($key);
     }
 
-    public function offsetUnset($key)
+    public function offsetUnset($key): void
     {
-        return $this->attrs->offsetUnset($key);
+        $this->attrs->offsetUnset($key);
     }
 }
 
