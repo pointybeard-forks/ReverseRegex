@@ -156,12 +156,12 @@ class Node implements ArrayAccess, Countable, Iterator
 
     public function next()
     {
-        return $this->links->next();
+        $this->links->next();
     }
 
     public function rewind()
     {
-        return $this->links->rewind();
+        $this->links->rewind();
     }
 
     public function valid()
