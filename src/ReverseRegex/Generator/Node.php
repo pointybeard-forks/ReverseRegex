@@ -145,12 +145,12 @@ class Node implements ArrayAccess, Countable, Iterator
     //------------------------------------------------------------------
     // Iterator
 
-    public function current()
+    public function current(): mixed
     {
         return $this->links->current();
     }
 
-    public function key()
+    public function key(): mixed
     {
         return $this->links->key();
     }
