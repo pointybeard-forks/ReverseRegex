@@ -172,7 +172,7 @@ class Node implements ArrayAccess, Countable, Iterator
 
     //------------------------------------------------------------------
     // ArrayAccess Implementation
-
+    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
         return $this->attrs->offsetGet($key);
